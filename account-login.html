@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Brancy - Cosmetic & Beauty Salon Website Template</title>
+    <title>Jade Garcia Beauty Studio</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="Brancy - Cosmetic & Beauty Salon Website Template">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -32,129 +32,221 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="./assets/css/style.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
 <body>
+    <style>
+         @font-face{
+        font-family: "Aerotis";
+        src: url("./assets/fonts/Aerotis.ttf") format("truetype");
+        }
+        .hero-slide-thumb-transparent img{
+            mask-image: linear-gradient(
+                black 80%,
+                transparent
+            );
+        }
+        .hero-slide-thumb img {
+            border-radius: 25px; /* Adds rounded corners to the image */
+        }
+        .cinzel-decorative-regular {
+        font-family: "Cinzel Decorative", serif;
+        font-weight: 400;
+        font-style: normal;
+        color: #A6776B;
+        }
+
+        .aerotis-regular {
+        font-family: "Aerotis", serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 12vh;
+        color: #D7AE9C;
+        max-width: 100%;
+        }
+
+        .aerotis-regular-2 {
+        font-family: "Aerotis", serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 8vh;
+        color: #D7AE9C;
+        margin-left: -20px;
+        max-width: 500px;
+        max-lines: 1;
+        }
+
+        .aerotis-bold {
+        font-family: "Aerotis", serif;
+        font-weight: 600;
+        font-style: normal;
+        font-size: 10vh;
+        color: #412214;
+        }
+
+        .cinzel-decorative-brown{
+            font-family: "Cinzel Decorative", serif;
+            font-weight: 900;
+            font-size: 3vh;
+            font-style: normal;
+            color: #412214;
+        }
+        
+
+        .cinzel-decorative-bold {
+        font-family: "Cinzel Decorative", serif;
+        font-weight: 700;
+        font-style: normal;
+        }
+
+        .cinzel-decorative-black {
+        font-family: "Cinzel Decorative", serif;
+        font-weight: 900;
+        font-style: normal;
+        }
+
+        .product-thumb {
+            width: 370px; /* Ajusta el ancho de la imagen al 100% del contenedor */
+            height: 450px; /* Altura del contenedor */
+            overflow: hidden; /* Oculta cualquier parte de la imagen que se desborde del contenedor */
+        }
+
+        .product-thumb img {
+            width: 370px; /* Ajusta el ancho de la imagen al 100% del contenedor */
+            height: 450px; /* Ajusta la altura de la imagen al 100% del contenedor */
+            object-fit: fill; /* Hace que la imagen cubra completamente el contenedor */
+        }
+        .pink{
+            color: #A6776B;
+        }
+        .main-nav li.active a {
+        color: #CE9B91;
+        }
+        .main-nav li.active ul li.active a {
+        color: #CE9B91;
+        }
+        .main-nav li.active ul li.active ul li.active a {
+        color: #CE9B91 !important;
+        }
+        .main-nav > li > a:hover {
+        color: #CE9B91;
+        }
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px; /* Espacio entre los elementos, puedes ajustarlo según tus necesidades */
+        }
+
+        @media only screen and (max-width: 767px) {
+            .product-container{
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                gap: 6px; 
+                height: auto;
+            }
+            .product-thumb {
+                width: 220; /* Ajusta el ancho de la imagen al 100% del contenedor */
+                height: 300px; /* Altura del contenedor */
+                overflow: hidden; /* Oculta cualquier parte de la imagen que se desborde del contenedor */
+            }
+            .product-thumb img {
+                width: 220px; /* Ajusta el ancho de la imagen al 100% del contenedor */
+                height: 300px; /* Ajusta la altura de la imagen al 100% del contenedor */
+                object-fit: fill; /* Hace que la imagen cubra completamente el contenedor */
+            }
+            .aerotis-regular {
+                font-family: "Aerotis", serif;
+                font-weight: 500;
+                font-style: normal;
+                font-size: 6vh;
+                margin-left: -80px;
+                color: #A6776B;
+                max-width: 100%;
+                }
+            .aerotis-regular-2 {
+                font-family: "Aerotis", serif;
+                font-weight: 600;
+                font-style: normal;
+                font-size: 6vh;
+                color: #A6776B;
+                max-width: 100%;
+                }
+            
+        }
+
+        @media only screen and (max-width: 1200px) {
+            .product-container{
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+                height: auto;
+            }
+            .product-thumb {
+                width: 270; /* Ajusta el ancho de la imagen al 100% del contenedor */
+                height: 300px; /* Altura del contenedor */
+                overflow: hidden; /* Oculta cualquier parte de la imagen que se desborde del contenedor */
+            }
+            .product-thumb img {
+                width: 270px; /* Ajusta el ancho de la imagen al 100% del contenedor */
+                height: 300px; /* Ajusta la altura de la imagen al 100% del contenedor */
+                object-fit: fill; /* Hace que la imagen cubra completamente el contenedor */
+            }
+            .aerotis-regular {
+                font-family: "Aerotis", serif;
+                font-weight: 500;
+                font-style: normal;
+                font-size: 8vh;
+                margin-left: -80px;
+                color: #A6776B;
+                max-width: 100%;
+                }
+
+                .aerotis-regular-2 {
+                font-family: "Aerotis", serif;
+                font-weight: 500;
+                font-style: normal;
+                font-size: 6vh;
+                color: #A6776B;
+                max-width: 100%;
+                }
+            
+        }
+    </style>
 
     <!--== Wrapper Start ==-->
     <div class="wrapper">
 
-        <!--== Start Header Wrapper ==-->
+                <!--== Start Header Wrapper ==-->
         <header class="header-area sticky-header">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-5 col-sm-6 col-lg-3">
                         <div class="header-logo">
                             <a href="index.html">
-                                <img class="logo-main" src="assets/images/logo.webp" width="95" height="68" alt="Logo" />
+                                <img class="logo-main" src="assets/images/LOGOS MODIFICADOS-02.png" width="95" height="68" alt="Logo" />
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-6 d-none d-lg-block">
-                        <div class="header-navigation">
+                    <div class="col-lg-7 col-xl-7 d-none d-lg-block">
+                        <div class="header-navigation ps-7">
                             <ul class="main-nav justify-content-start">
-                                <li class="has-submenu"><a href="index.html">home</a>
-                                    <ul class="submenu-nav">
-                                        <li><a href="index.html">Home One</a></li>
-                                        <li><a href="index-two.html">Home Two</a></li>
-                                    </ul>
+                                <li ><a href="index.html">Inicio</a></li>
+                                <li><a href="about-us.html">Acerca de Nosotros</a></li>
+                                <li ><a href="account-login.html">Cuenta</a>
                                 </li>
-                                <li><a href="about-us.html">about</a></li>
-                                <li class="has-submenu position-static"><a href="product.html">shop</a>
-                                    <ul class="submenu-nav-mega">
-                                        <li><a href="#/" class="mega-title">Shop Layout</a>
-                                            <ul>
-                                                <li><a href="product.html">Shop 3 Column</a></li>
-                                                <li><a href="product-four-columns.html">Shop 4 Column</a></li>
-                                                <li><a href="product-left-sidebar.html">Shop Left Sidebar</a></li>
-                                                <li><a href="product-right-sidebar.html">Shop Right Sidebar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#/" class="mega-title">Single Product</a>
-                                            <ul>
-                                                <li><a href="product-details-normal.html">Single Product Normal</a></li>
-                                                <li><a href="product-details.html">Single Product Variable</a></li>
-                                                <li><a href="product-details-group.html">Single Product Group</a></li>
-                                                <li><a href="product-details-affiliate.html">Single Product Affiliate</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#/" class="mega-title">Others Pages</a>
-                                            <ul>
-                                                <li><a href="product-cart.html">Shopping Cart</a></li>
-                                                <li><a href="product-checkout.html">Checkout</a></li>
-                                                <li><a href="product-wishlist.html">Wishlist</a></li>
-                                                <li><a href="product-compare.html">Compare</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="has-submenu"><a href="blog.html">Blog</a>
-                                    <ul class="submenu-nav">
-                                        <li class="has-submenu"><a href="#/">Blog Layout</a>
-                                            <ul class="submenu-nav">
-                                                <li><a href="blog.html">Blog Grid</a></li>
-                                                <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                                <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                    </ul>
-                                </li>
-                                <li class="has-submenu"><a href="account-login.html">Pages</a>
-                                    <ul class="submenu-nav">
-                                        <li><a href="account-login.html">My Account</a></li>
-                                        <li><a href="faq.html">Frequently Questions</a></li>
-                                        <li><a href="page-not-found.html">Page Not Found</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="contact.html">Contacto</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-7 col-sm-6 col-lg-3">
                         <div class="header-action justify-content-end">
-                            <button class="header-action-btn ms-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasSearch" aria-controls="AsideOffcanvasSearch">
-                                <span class="icon">
-                  <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <rect class="icon-rect" width="30" height="30" fill="url(#pattern1)"/>
-                    <defs>
-                      <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
-                        <use xlink:href="#image0_504:11" transform="scale(0.0333333)"/>
-                      </pattern>
-                      <image id="image0_504:11" width="30" height="30" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABiUlEQVRIie2Wu04CQRSGP0G2EUtIbHwA8B3EQisLIcorEInx8hbEZ9DKy6toDI1oAgalNFpDoYWuxZzJjoTbmSXERP7kZDbZ859vdmb27MJcf0gBUAaugRbQk2gBV3IvmDa0BLwA4Zh4BorTACaAU6fwPXAI5IAliTxwBDScvJp4vWWhH0BlTLEEsC+5Fu6lkgNdV/gKDnxHCw2I9rSiNQNV8baBlMZYJtpTn71KAg9SY3dUYn9xezLPgG8P8BdwLteq5X7CzDbnAbXKS42WxtQVUzoGeFlqdEclxXrnhmhhkqR+8KuMqzHA1vumAddl3IwB3pLxVmOyr1NjwKQmURJ4lBp7GmOAafghpg1qdSDeDrCoNReJWmZB4dsAPsW7rYVa1Rx4FbOEw5TEPKmFvgMZX3DCgYeYNniMaQ5piTXghGhPLdTmZ33hYNpem98f/UHRwSxvhqhXx4anMA3/EmhiOlJPJnSBOb3uQcpOE65VhujPpAms/Bu4u+x3swRbeB24mTV4LgB+AFuLedkPkcmmAAAAAElFTkSuQmCC"/>
-                    </defs>
-                  </svg>
-                </span>
-                            </button>
+                            
 
-                            <button class="header-action-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasCart" aria-controls="AsideOffcanvasCart">
-                                <span class="icon">
-                  <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <rect class="icon-rect" width="30" height="30" fill="url(#pattern2)"/>
-                    <defs>
-                      <pattern id="pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
-                        <use xlink:href="#image0_504:9" transform="scale(0.0333333)"/>
-                      </pattern>
-                      <image id="image0_504:9" width="30" height="30" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABFUlEQVRIie2VMU7DMBSGvwAqawaYuAmKxCW4A1I5Qg4AA93KBbp1ZUVUlQJSVVbCDVhgzcTQdLEVx7WDQ2xLRfzSvzzb+d6zn2MYrkugBBYevuWsHKiFn2JBMwH8Bq6Aw1jgBwHOYwGlPgT4LDZ4I8BJDNiEppl034UEJ8DMAJ0DByHBACPgUYEugePQUKkUWAmnsaB/Ry/YO9aXCwlT72AdrqaWEohwBWxSwc8ReIVtYIr5bM5pXqO+Men7rozGlkVSv4lJj1WQfsbvXVkNVNk1eEK4ik9/yuwzAPhLh5iuU4jtftMDR4ZJJXChxTJ2H3zXGDgWc43/X2Wro8G81a8u2fXU2nXiLVAxvNIKuPGW/r/2SltF+a3Rkw4pmwAAAABJRU5ErkJggg=="/>
-                    </defs>
-                  </svg>
-                </span>
-                            </button>
 
-                            <a class="header-action-btn" href="account-login.html">
-                                <span class="icon">
-                  <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <rect class="icon-rect" width="30" height="30" fill="url(#pattern3)"/>
-                    <defs>
-                      <pattern id="pattern3" patternContentUnits="objectBoundingBox" width="1" height="1">
-                        <use xlink:href="#image0_504:10" transform="scale(0.0333333)"/>
-                      </pattern>
-                      <image id="image0_504:10" width="30" height="30" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABEUlEQVRIie3UMUoDYRDF8Z8psqUpLBRrBS+gx7ATD6E5iSjeQQ/gJUzEwmChnZZaKZiQ0ljsLkhQM5/5Agr74DX7DfOfgZ1Hoz+qAl30Marcx2H1thCtY4DJN76parKqmAH9DM+6eTcArX2QE3yVAO7lBA8TwMNIw6UgeJI46My+rWCjUQL0LVIUBd8lgEO1UfBZAvg8oXamCuWNRu64nRNMmUo/wReSXLXayoDoKc9miMvqW/ZNG2VRNLla2MYudrCFTvX2intlnl/gGu/zDraGYzyLZ/UTjrD6G2AHpxgnAKc9xgmWo9BNPM4BnPYDNiLg24zQ2oNpyFdZvRKZLlGhnvvKPzXXti/Yy7hEo3+iD9EHtgdqxQnwAAAAAElFTkSuQmCC"/>
-                    </defs>
-                  </svg>
-                </span>
-                            </a>
+                         
 
                             <button class="header-menu-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasMenu" aria-controls="AsideOffcanvasMenu">
                                 <span></span>
@@ -177,30 +269,29 @@
                         <div class="col-md-5">
                             <div class="page-header-st3-content text-center text-md-start">
                                 <ol class="breadcrumb justify-content-center justify-content-md-start">
-                                    <li class="breadcrumb-item"><a class="text-dark" href="index.html">Home</a></li>
-                                    <li class="breadcrumb-item active text-dark" aria-current="page">Account</li>
+                                    <li class="breadcrumb-item"><a class="text-dark" href="index.html">Inicio</a></li>
+                                    <li class="breadcrumb-item active text-dark" aria-current="page">Cuenta</li>
                                 </ol>
-                                <h2 class="page-header-title">Account</h2>
+                                <h2 class="page-header-title">Cuenta</h2>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
             <!--== End Page Header Area Wrapper ==-->
-
             <!--== Start Account Area Wrapper ==-->
             <section class="section-space">
                 <div class="container">
                     <div class="row mb-n8">
-                        <div class="col-lg-6 mb-8">
+                        <div class="col-lg-6 mb-8" id="login-section">
                             <!--== Start Login Area Wrapper ==-->
                             <div class="my-account-item-wrap">
                                 <h3 class="title">Login</h3>
                                 <div class="my-account-form">
-                                    <form action="#" method="post">
+                                    <form id="login_form" method="post">
                                         <div class="form-group mb-6">
-                                            <label for="login_username">Username or Email Address <sup>*</sup></label>
-                                            <input type="email" id="login_username">
+                                            <label for="login_username">Telefono <sup>*</sup></label>
+                                            <input type="text" id="login_username">
                                         </div>
 
                                         <div class="form-group mb-6">
@@ -209,7 +300,7 @@
                                         </div>
 
                                         <div class="form-group d-flex align-items-center mb-14">
-                                            <a class="btn" href="my-account.html">Login</a>
+                                            <button type="submit" class="btn">Login</button>
 
                                             <div class="form-check ms-3">
                                                 <input type="checkbox" class="form-check-input" id="remember_pwsd">
@@ -222,31 +313,151 @@
                             </div>
                             <!--== End Login Area Wrapper ==-->
                         </div>
-                        <div class="col-lg-6 mb-8">
+                        <div class="col-lg-6 mb-8" id="register-section">
                             <!--== Start Register Area Wrapper ==-->
                             <div class="my-account-item-wrap">
                                 <h3 class="title">Register</h3>
                                 <div class="my-account-form">
-                                    <form action="#" method="post">
+                                    <form  method="post" id="registration_form">
+                                        <!-- Cambio de Username a Nombre -->
                                         <div class="form-group mb-6">
-                                            <label for="register_username">Username or Email Address <sup>*</sup></label>
-                                            <input type="email" id="register_username">
+                                            <label for="register_name">Nombre Completo <sup>*</sup></label>
+                                            <input type="text" id="register_name" required>
+                                        </div>
+                                        <div class="form-group mb-6">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="register_dob">Fecha de Nacimiento <sup>*</sup></label>
+                                                    <input type="date" id="register_dob" required>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="register_phone">Teléfono <sup>*</sup></label>
+                                                    <input type="tel" id="register_phone" required>
+                                                </div>
+                                            </div>
                                         </div>
 
+                                        <!-- Agregar Preferencias -->
+                                        <div class="form-group mb-6">
+                                            <label for="register_preferences">Preferencias</label>
+                                            <input type="text" id="register_preferences">
+                                        </div>
+
+                                        <!-- Mantener Password -->
                                         <div class="form-group mb-6">
                                             <label for="register_pwsd">Password <sup>*</sup></label>
-                                            <input type="password" id="register_pwsd">
+                                            <input type="password" id="register_pwsd" required>
                                         </div>
 
                                         <div class="form-group">
                                             <p class="desc mb-4">Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our privacy policy.</p>
-                                            <a class="btn" href="my-account.html">Register</a>
+                                            <button type="submit" class="btn">Register</button>
                                         </div>
                                     </form>
                                 </div>
                             </div>
                             <!--== End Register Area Wrapper ==-->
                         </div>
+
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                const userId = localStorage.getItem('userId');
+                                if (userId) {
+                                    location.href = "my-account.html"
+                                }
+                            });
+
+                            document.querySelector('#registration_form').addEventListener('submit', function(event) {
+                                event.preventDefault(); // Prevent the normal form submission
+                            
+                                const name = document.getElementById('register_name').value;
+                                const dob = document.getElementById('register_dob').value;
+                                const phone = document.getElementById('register_phone').value;
+                                const preferences = document.getElementById('register_preferences').value;
+                                const password = document.getElementById('register_pwsd').value;
+                            
+                                const informacion = {
+                                    nombre: name,
+                                    fechaNacimiento: dob,
+                                    preferencias: preferences,
+                                    telefono : phone,
+                                }
+                                // Data to send to the API
+                                const userData = {
+                                    nombre: name,
+                                    username: phone, // Use phone as username
+                                    password: password,
+                                    informacion: informacion,
+                                };
+
+                                // API call (adjust URL and method according to your API)
+                                fetch('http://localhost:3000/api/registerUser', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify(userData)
+                                })
+                                .then(response => response.json())
+                                .then(data => {
+                                    console.log('Success:', data);
+                                    localStorage.setItem('userId', data._id);
+                                    localStorage.setItem('Name', data.nombre);
+                                    localStorage.setItem('Telefono', data.informacion.telefono);
+                                    showAlert("Registro Exitoso!", "Registraste tu cuenta en el sistema..")
+                                })
+                                .catch((error) => {
+                                console.error('Error:', error);
+                                });
+                                });
+
+                                document.querySelector('#login_form').addEventListener('submit', function(event) {
+                                    event.preventDefault(); // Prevent the normal form submission
+                                
+                                    const username = document.getElementById('login_username').value;
+                                    const password = document.getElementById('login_pwsd').value;
+                                
+                                    const loginData = {
+                                        username: username,
+                                        password: password,
+                                    };
+
+                                    // API call (adjust URL and method according to your API)
+                                    fetch('http://localhost:3000/api/loginUser', {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify(loginData)
+                                    })
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        console.log('Success:', data);
+                                        localStorage.setItem('userId', data.id);
+                                        localStorage.setItem('Name', data.nombre);
+                                        localStorage.setItem('Telefono', data.telefono);
+                                        showAlert("Login Exitoso!", "Has iniciado sesión correctamente.")
+                                    })
+                                    .catch((error) => {
+                                    console.error('Error:', error);
+                                    });
+                                });
+
+                                function showAlert(titulo, texto) {
+                                    Swal.fire({
+                                        title: titulo,
+                                        text: texto,
+                                        icon: 'success',
+                                        confirmButtonColor: '#D7AE9C',
+                                        confirmButtonText: 'Aceptar'
+                                    }).then((result) =>{
+                                        if(result.isConfirmed){
+                                            window.location.href = "my-account.html"
+                                        }
+                                    });
+                                }
+
+                        </script>
                     </div>
                 </div>
             </section>
@@ -264,34 +475,30 @@
                             <div class="widget-item">
                                 <div class="widget-about">
                                     <a class="widget-logo" href="index.html">
-                                        <img src="assets/images/logo.webp" width="95" height="68" alt="Logo">
+                                        <img src="assets/images/LOGOS MODIFICADOS-02.png" width="95" height="68" alt="Logo">
                                     </a>
-                                    <p class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+                                    <p class="desc">Amamos consentirte</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-5 mt-md-0 mt-9">
-                            <div class="widget-item">
-                                <h4 class="widget-title">Information</h4>
-                                <ul class="widget-nav">
-                                    <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="about-us.html">About us</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                    <li><a href="faq.html">Privacy</a></li>
-                                    <li><a href="account-login.html">Login</a></li>
-                                    <li><a href="product.html">Shop</a></li>
-                                    <li><a href="my-account.html">My Account</a></li>
-                                    <li><a href="faq.html">FAQs</a></li>
-                                </ul>
-                            </div>
+                        <div class="widget-item">
+                            <h4 class="widget-title">Information</h4>
+                            <ul class="widget-nav">
+
+                                <li><a href="about-us.html">Acerca de </a></li>
+                                <li><a href="contact.html">Contacto</a></li>
+                                <li><a href="account-login.html">Mi cuenta</a></li>
+                            </ul>
+                        </div>
                         </div>
                         <div class="col-md-6 col-lg-3 mt-lg-0 mt-6">
                             <div class="widget-item">
-                                <h4 class="widget-title">Social Info</h4>
+                                <h4 class="widget-title">Redes Sociales</h4>
                                 <div class="widget-social">
-                                    <a href="https://twitter.com/" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a>
-                                    <a href="https://www.facebook.com/" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a>
-                                    <a href="https://www.pinterest.com/" target="_blank" rel="noopener"><i class="fa fa-pinterest-p"></i></a>
+                                    <a href="https://wa.me/+50375827664"><i class="fa fa-whatsapp"></i></a>
+                                    <a href="https://www.instagram.com/jadeprismua/" target="_blank" rel="noopener"><i class="fa fa-instagram"></i></a>
+                                    <a href="https://www.facebook.com/profile.php?id=100063508453404" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -304,7 +511,7 @@
             <div class="footer-bottom">
                 <div class="container pt-0 pb-0">
                     <div class="footer-bottom-content">
-                        <p class="copyright">© 2022 Brancy. Made with <i class="fa fa-heart"></i> by <a target="_blank" href="https://themeforest.net/user/codecarnival">Codecarnival.</a></p>
+                        <p class="copyright">© 2024 Jade Garcia Beauty Studio. Made with <i class="fa fa-heart"></i> by <a target="_blank" href="https://themeforest.net/user/codecarnival">Codecarnival.</a></p>
                     </div>
                 </div>
             </div>
@@ -488,61 +695,13 @@
             <div class="offcanvas-body">
                 <div id="offcanvasNav" class="offcanvas-menu-nav">
                     <ul>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">home</a>
-                            <ul>
-                                <li><a href="index.html">Home One</a></li>
-                                <li><a href="index-two.html">Home Two</a></li>
-                            </ul>
+                        <li class="has-submenu"><a href="index.html">Inicio</a>
                         </li>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="about-us.html">about</a></li>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">shop</a>
-                            <ul>
-                                <li><a href="#" class="offcanvas-nav-item">Shop Layout</a>
-                                    <ul>
-                                        <li><a href="product.html">Shop 3 Column</a></li>
-                                        <li><a href="product-four-columns.html">Shop 4 Column</a></li>
-                                        <li><a href="product-left-sidebar.html">Shop Left Sidebar</a></li>
-                                        <li><a href="product-right-sidebar.html">Shop Right Sidebar</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#" class="offcanvas-nav-item">Single Product</a>
-                                    <ul>
-                                        <li><a href="product-details-normal.html">Single Product Normal</a></li>
-                                        <li><a href="product-details.html">Single Product Variable</a></li>
-                                        <li><a href="product-details-group.html">Single Product Group</a></li>
-                                        <li><a href="product-details-affiliate.html">Single Product Affiliate</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#" class="offcanvas-nav-item">Others Pages</a>
-                                    <ul>
-                                        <li><a href="product-cart.html">Shopping Cart</a></li>
-                                        <li><a href="product-checkout.html">Checkout</a></li>
-                                        <li><a href="product-wishlist.html">Wishlist</a></li>
-                                        <li><a href="product-compare.html">Compare</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                        <li><a href="about-us.html">Acerca de Nosotros</a></li>
+                        
+                        <li class="has-submenu"><a href="account-login.html">Cuenta</a>
                         </li>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">Blog</a>
-                            <ul>
-                                <li><a class="offcanvas-nav-item" href="#">Blog Layout</a>
-                                    <ul>
-                                        <li><a href="blog.html">Blog Grid</a></li>
-                                        <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                        <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="blog-details.html">Blog Details</a></li>
-                            </ul>
-                        </li>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="#">Pages</a>
-                            <ul>
-                                <li><a href="account-login.html">My Account</a></li>
-                                <li><a href="faq.html">Frequently Questions</a></li>
-                                <li><a href="page-not-found.html">Page Not Found</a></li>
-                            </ul>
-                        </li>
-                        <li class="offcanvas-nav-parent"><a class="offcanvas-nav-item" href="contact.html">Contact</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
                     </ul>
                 </div>
             </div>

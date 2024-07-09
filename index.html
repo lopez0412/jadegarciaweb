@@ -107,14 +107,14 @@
         }
 
         .product-thumb {
-            width: 370px; /* Ajusta el ancho de la imagen al 100% del contenedor */
-            height: 450px; /* Altura del contenedor */
+            width: 320px; /* Ajusta el ancho de la imagen al 100% del contenedor */
+            height: 400px; /* Altura del contenedor */
             overflow: hidden; /* Oculta cualquier parte de la imagen que se desborde del contenedor */
         }
 
         .product-thumb img {
-            width: 370px; /* Ajusta el ancho de la imagen al 100% del contenedor */
-            height: 450px; /* Ajusta la altura de la imagen al 100% del contenedor */
+            width: 320px; /* Ajusta el ancho de la imagen al 100% del contenedor */
+            height: 400px; /* Ajusta la altura de la imagen al 100% del contenedor */
             object-fit: fill; /* Hace que la imagen cubra completamente el contenedor */
         }
         .pink{
@@ -135,45 +135,13 @@
         .product-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 16px; /* Espacio entre los elementos, puedes ajustarlo según tus necesidades */
+            gap: 16px; 
+            width: 100%;
+            max-height: 1200px; /* Sets a maximum height for the container */
+            overflow-x: auto; /* Makes the container scrollable */
         }
 
-        @media only screen and (max-width: 767px) {
-            .product-container{
-                display: grid;
-                grid-template-columns: repeat(1, 1fr);
-                gap: 6px; 
-                height: auto;
-            }
-            .product-thumb {
-                width: 220; /* Ajusta el ancho de la imagen al 100% del contenedor */
-                height: 300px; /* Altura del contenedor */
-                overflow: hidden; /* Oculta cualquier parte de la imagen que se desborde del contenedor */
-            }
-            .product-thumb img {
-                width: 220px; /* Ajusta el ancho de la imagen al 100% del contenedor */
-                height: 300px; /* Ajusta la altura de la imagen al 100% del contenedor */
-                object-fit: fill; /* Hace que la imagen cubra completamente el contenedor */
-            }
-            .aerotis-regular {
-                font-family: "Aerotis", serif;
-                font-weight: 500;
-                font-style: normal;
-                font-size: 6vh;
-                margin-left: -80px;
-                color: #A6776B;
-                max-width: 100%;
-                }
-            .aerotis-regular-2 {
-                font-family: "Aerotis", serif;
-                font-weight: 600;
-                font-style: normal;
-                font-size: 6vh;
-                color: #A6776B;
-                max-width: 100%;
-                }
-            
-        }
+       
 
         @media only screen and (max-width: 1200px) {
             .product-container{
@@ -181,15 +149,17 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 8px;
                 height: auto;
+                height: 900px; /* Adjusted to allow for 4 rows of content */
+                overflow-x: auto; /* Makes the container scrollable */
             }
             .product-thumb {
-                width: 270; /* Ajusta el ancho de la imagen al 100% del contenedor */
-                height: 300px; /* Altura del contenedor */
+                width: 300px; /* Ajusta el ancho de la imagen al 100% del contenedor */
+                height: 350px; /* Altura del contenedor */
                 overflow: hidden; /* Oculta cualquier parte de la imagen que se desborde del contenedor */
             }
             .product-thumb img {
-                width: 270px; /* Ajusta el ancho de la imagen al 100% del contenedor */
-                height: 300px; /* Ajusta la altura de la imagen al 100% del contenedor */
+                width: 300px; /* Ajusta el ancho de la imagen al 100% del contenedor */
+                height: 350px; /* Ajusta la altura de la imagen al 100% del contenedor */
                 object-fit: fill; /* Hace que la imagen cubra completamente el contenedor */
             }
             .aerotis-regular {
@@ -205,6 +175,45 @@
                 .aerotis-regular-2 {
                 font-family: "Aerotis", serif;
                 font-weight: 500;
+                font-style: normal;
+                font-size: 6vh;
+                color: #A6776B;
+                max-width: 100%;
+                }
+            
+        }
+
+        @media only screen and (max-width: 767px) {
+            .product-container{
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                gap: 6px; 
+                width: 100%;
+                height: 2000px; /* Adjusted to allow for 4 rows of content */
+                overflow-x: auto; /* Makes the container scrollable */
+            }
+            .product-thumb {
+                width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+                height: 350px; /* Altura del contenedor */
+                overflow: hidden; /* Oculta cualquier parte de la imagen que se desborde del contenedor */
+            }
+            .product-thumb img {
+                width: 200px; /* Ajusta el ancho de la imagen al 100% del contenedor */
+                height: 350px; /* Ajusta la altura de la imagen al 100% del contenedor */
+                object-fit: fill; /* Hace que la imagen cubra completamente el contenedor */
+            }
+            .aerotis-regular {
+                font-family: "Aerotis", serif;
+                font-weight: 500;
+                font-style: normal;
+                font-size: 6vh;
+                margin-left: -80px;
+                color: #A6776B;
+                max-width: 100%;
+                }
+            .aerotis-regular-2 {
+                font-family: "Aerotis", serif;
+                font-weight: 600;
                 font-style: normal;
                 font-size: 6vh;
                 color: #A6776B;

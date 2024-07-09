@@ -292,7 +292,6 @@
                             <div class="my-account-tab-menu nav nav-tabs" id="nav-tab" role="tablist">
                                 <button class="nav-link active" id="dashboad-tab" data-bs-toggle="tab" data-bs-target="#dashboad" type="button" role="tab" aria-controls="dashboad" aria-selected="true">Dashboard</button>
                                 <button class="nav-link" id="orders-tab" data-bs-toggle="tab" data-bs-target="#orders" type="button" role="tab" aria-controls="orders" aria-selected="false"> Historial</button>
-                                <button class="nav-link" id="account-info-tab" data-bs-toggle="tab" data-bs-target="#account-info" type="button" role="tab" aria-controls="account-info" aria-selected="false">Detalles de la cuenta</button>
                                 <button class="nav-link" onclick="Logout()" type="button">Cerrar Sesion</button>
                             </div>
                         </div>
@@ -320,35 +319,35 @@
                                             <table class="table table-bordered">
                                                 <thead class="thead-light">
                                                     <tr>
-                                                        <th>Order</th>
-                                                        <th>Date</th>
+                                                        <th>Fecha</th>
+                                                        <th>Servicio</th>
                                                         <th>Status</th>
                                                         <th>Total</th>
-                                                        <th>Action</th>
+                                                        
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Aug 22, 2018</td>
-                                                        <td>Pending</td>
-                                                        <td>$3000</td>
-                                                        <td><a href="shop-cart.html" class="check-btn sqr-btn ">View</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>July 22, 2018</td>
-                                                        <td>Approved</td>
-                                                        <td>$200</td>
-                                                        <td><a href="shop-cart.html" class="check-btn sqr-btn ">View</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3</td>
-                                                        <td>June 12, 2017</td>
-                                                        <td>On Hold</td>
-                                                        <td>$990</td>
-                                                        <td><a href="shop-cart.html" class="check-btn sqr-btn ">View</a></td>
-                                                    </tr>
+                                                    <script>
+                                                        document.addEventListener('DOMContentLoaded', function() {
+                                                            var userId = localStorage.getItem('userId');
+                                                            fetch(`http://localhost:3000/api/historial-citas-clienta?userId=${userId}`)
+                                                                .then(response => response.json())
+                                                                .then(data => {
+                                                                    data.forEach(order => {
+                                                                        document.querySelector('tbody').innerHTML += `
+                                                                            <tr>
+                                                                                <td>${order.citaDate.split("T")[0]}</td>
+                                                                                <td>${order.servicioInfo.nombre}</td>
+                                                                                <td>${order.estado}</td>
+                                                                                <td>$${order.total}</td>
+                                                                            </tr>
+                                                                        `;
+                                                                    });
+                                                                })
+                                                                .catch(error => console.error('Error:', error));
+                                                        });
+                                                    </script>
+                                                   
                                                 </tbody>
                                             </table>
                                         </div>
@@ -388,7 +387,7 @@
                                                     </div>
                                                 </fieldset>
                                                 <div class="single-input-item">
-                                                    <button class="check-btn sqr-btn">Guardar Cambiosw</button>
+                                                    <button class="check-btn sqr-btn">Guardar Cambios</button>
                                                 </div>
                                             </form>
                                         </div>

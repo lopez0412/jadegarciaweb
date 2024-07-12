@@ -292,6 +292,7 @@
                             <div class="my-account-tab-menu nav nav-tabs" id="nav-tab" role="tablist">
                                 <button class="nav-link active" id="dashboad-tab" data-bs-toggle="tab" data-bs-target="#dashboad" type="button" role="tab" aria-controls="dashboad" aria-selected="true">Dashboard</button>
                                 <button class="nav-link" id="orders-tab" data-bs-toggle="tab" data-bs-target="#orders" type="button" role="tab" aria-controls="orders" aria-selected="false"> Historial</button>
+                                <button class="nav-link" id="account-info-tab" data-bs-toggle="tab" data-bs-target="#account-info" type="button" role="tab" aria-controls="orders" aria-selected="false"> Cambio de Password</button>
                                 <button class="nav-link" onclick="Logout()" type="button">Cerrar Sesion</button>
                             </div>
                         </div>
@@ -359,12 +360,10 @@
                                         <h3>Detalle de la cuenta</h3>
                                         <div class="account-details-form">
                                             <form id="">
-                                               
-                                              
-                                                <div class="single-input-item">
+                                                <!--<div class="single-input-item">
                                                     <label for="email" class="required">Telefono</label>
                                                     <input type="text" id="telefononuevo" />
-                                                </div>
+                                                </div>-->
                                                 <fieldset>
                                                     <legend>Cambio de Password</legend>
                                                     <div class="single-input-item">
@@ -390,6 +389,54 @@
                                                     <button class="check-btn sqr-btn">Guardar Cambios</button>
                                                 </div>
                                             </form>
+                                            <script>
+                                                document.getElementById('new-pwd').addEventListener('input', function() {
+                                                    if (this.value != document.getElementById('confirm-pwd').value) {
+                                                        this.setCustomValidity("Passwords do not match");
+                                                    } else {
+                                                        this.setCustomValidity("");
+                                                    }
+                                                });
+
+                                                document.getElementById('confirm-pwd').addEventListener('input', function() {
+                                                    if (this.value != document.getElementById('new-pwd').value) {
+                                                        this.setCustomValidity("Passwords do not match");
+                                                    } else {
+                                                        this.setCustomValidity("");
+                                                    }
+                                                });
+
+                                                document.querySelector('.check-btn').addEventListener('click', function() {
+                                                    const userId = localStorage.getItem('userId');
+                                                    const currentPassword = document.getElementById('current-pwd').value;
+                                                    const newPassword = document.getElementById('new-pwd').value;
+
+                                                    if (userId && currentPassword && newPassword) {
+                                                        fetch('http://localhost:3000/api/changePassword', {
+                                                            method: 'POST',
+                                                            headers: {
+                                                                'Content-Type': 'application/json'
+                                                            },
+                                                            body: JSON.stringify({ userId: userId, currentPassword: currentPassword, newPassword: newPassword })
+                                                        })
+                                                        .then(response => response.json())
+                                                        .then(data => {
+                                                            if (data.success) {
+                                                                Swal.fire({
+                                                                    title: 'Password Cambiado',
+                                                                    text: data.message,
+                                                                    icon: 'success',
+                                                                    confirmButtonColor: '#D7AE9C',
+                                                                    confirmButtonText: 'Aceptar'
+                                                                });
+                                                            } else {
+                                                                showAlertError('Error', data.message);
+                                                            }
+                                                        })
+                                                        .catch(error => console.error('Error:', error));
+                                                    }
+                                                });
+                                            </script>
                                         </div>
                                     </div>
                                 </div>

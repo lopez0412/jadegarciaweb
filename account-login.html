@@ -290,7 +290,7 @@
                                     <form id="login_form" method="post">
                                         <div class="form-group mb-6">
                                             <label for="login_username">Telefono <sup>*</sup></label>
-                                            <input type="text" id="login_username">
+                                            <input type="text" id="login_username" required>
                                         </div>
 
                                         <div class="form-group mb-6">
@@ -303,8 +303,9 @@
 
                                            
                                         </div>
-                                        <a class="lost-password" >Olvidaste La Contraseña? </a>
+                                        
                                     </form>
+                                    <button class="lost-password btn" onclick="findUserIdByPhone(document.getElementById('login_username').value)">Olvidaste La Contraseña? </button>
                                 </div>
                             </div>
                             <!--== End Login Area Wrapper ==-->
@@ -435,6 +436,7 @@
                                     })
                                     .catch((error) => {
                                     console.error('Error:', error);
+                                    showAlertError("Datos incorrectos", "Usuario/Password incorrectos, intente de nuevo o reestablesca el Password")
                                     });
                                 });
 
@@ -452,7 +454,123 @@
                                     });
                                 }
 
+                                function showAlertError(titulo, texto) {
+                                    Swal.fire({
+                                        title: titulo,
+                                        text: texto,
+                                        icon: 'error',
+                                        confirmButtonColor: '#D7AE9C',
+                                        confirmButtonText: 'Aceptar'
+                                    });
+                                }
+
+                        function showAlertPPassword() {
+                                    Swal.fire({
+                                        title: "Atencion!",
+                                        text: "Reestablecer el Password de la cuenta?",
+                                        icon: 'warning',
+                                        confirmButtonColor: '#D7AE9C',
+                                        confirmButtonText: 'Aceptar'
+                                    }).then((result) =>{
+                                        if(result.isConfirmed){
+                                            window.location.href = "my-account.html"
+                                        }
+                                    });
+                                }
+
+                                function resetPassword() {
+                                    const userId = localStorage.getItem('userId');
+                                    if (userId) {
+                                        fetch('http://localhost:3000/api/resetPassword', {
+                                            method: 'POST',
+                                            headers: {
+                                                'Content-Type': 'application/json'
+                                            },
+                                            body: JSON.stringify({ userId: userId })
+                                        })
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            Swal.fire({
+                                                title: 'Password reestablecido',
+                                                text: data.message,
+                                                icon: 'success',
+                                                confirmButtonColor: '#D7AE9C',
+                                                confirmButtonText: 'Aceptar'
+                                            }).then((result) =>{
+                                            if(result.isConfirmed){
+                                                localStorage.removeItem('userId')
+                                                window.location.href = 'account-login.html'
+                                            }
+                                            });
+                                        })
+                                        .catch((error) => {
+                                            console.error('Error:', error);
+                                        });
+                                    } else {
+                                        Swal.fire({
+                                            title: 'Error',
+                                            text: 'No se pudo reestablecer el Password. Por favor, inicia sesión.',
+                                            icon: 'error',
+                                            confirmButtonColor: '#D7AE9C',
+                                            confirmButtonText: 'Aceptar'
+                                        });
+                                    }
+                                }
+
+                        function findUserIdByPhone(phone) {
+                            fetch(`http://localhost:3000/api/findUserByPhone?phone=${phone}`)
+                                .then(response => response.json())
+                                .then(data => {
+                                    if (data._id) {
+                                        localStorage.setItem('userId', data._id);
+                                        Swal.fire({
+                                            title: 'Encontrado',
+                                            text: 'El usuario ha sido encontrado.',
+                                            icon: 'success',
+                                            confirmButtonColor: '#D7AE9C',
+                                            confirmButtonText: 'Aceptar'
+                                        }).then((result) =>{
+                                            if(result.isConfirmed){
+                                                resetPassword()
+                                            }
+                                        });
+                                    } else {
+                                        Swal.fire({
+                                            title: 'Error',
+                                            text: 'El usuario no se pudo encontrar.',
+                                            icon: 'error',
+                                            confirmButtonColor: '#D7AE9C',
+                                            confirmButtonText: 'Aceptar'
+                                        });
+                                    }
+                                })
+                                .catch((error) => {
+                                    console.error('Error:', error);
+                                });
+                        }
+
                         </script>
+                    </div>
+                </div>
+
+                
+                <div class="modal fade" id="telefonoModal" tabindex="-1" aria-labelledby="telefonoModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="telefonoModalLabel">Ingrese su teléfono</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="telefonoInput" class="form-label">Teléfono</label>
+                                        <input type="text" class="form-control" id="telefonoInput" placeholder="Ingrese su teléfono">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" onclick="">Guardar</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
